@@ -1,27 +1,20 @@
 package ru.netology.domain;
-
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-public class RadioTest {
+class RadioTest {
+    Radio radio = new Radio();
 
     @Test
-    public void RadioTest() {
-        Radio radio = new Radio();
-
+    public void validateChangeNowPlay() {
+        radio.setNowPlay(10);
+        assertEquals(0, radio.getNowPlay());
     }
+
+
     @Test
-    public void validateZeroValues() {
-        Radio radio = new Radio();
-        assertEquals( 0, radio.nowPlay);
-        assertEquals(0, radio.minPlay);
-        assertEquals(0, radio.maxPlay);
-        assertFalse(radio.on);
-        assertNull(radio.Name);
-
-        System.out.println("hello");
-
+    public void validateChangeNowVolume() {
+        radio.setNowVolume(11);
+        assertEquals(10, radio.getNowVolume());
     }
-
 }
