@@ -14,9 +14,12 @@ class RadioTest {
         assertEquals(0, radio.getNowVolume());
     }
 
+
     @Test
     public void validateChangeNowPlay() {
         radio.setNowPlay(11);
         assertEquals(0, radio.getNowPlay());
     }
+
+
 }

@@ -93,21 +93,22 @@ public class Radio {
     }
 
     public int prevStation() {
-        nowPlay = nowPlay> minStation ? nowPlay -1 : maxStation;
+        nowPlay = nowPlay > minStation ? nowPlay - 1 : maxStation;
         return nowPlay;
     }
+
     // Переключение громкости
     public int increaseVolume() {
         if (nowVolume < maxVolume) {
-        nowVolume++;
-    }
-     return nowVolume;
+            nowVolume++;
+        }
+        return nowVolume;
     }
 
     public int decreaseVolume() {
         if (nowVolume > minVolume) {
-        nowVolume--;
-    }
-    return nowVolume;
+            nowVolume--;
+        }
+        return nowVolume;
     }
 }
