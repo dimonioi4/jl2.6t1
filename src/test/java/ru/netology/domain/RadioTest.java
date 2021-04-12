@@ -33,7 +33,7 @@ public class RadioTest {
     public void shouldRadioStationOver() {
         Radio radio = new Radio(9);
         radio.setNowPlay();
-        assertEquals(5, radio.getNowPlay());
+        assertEquals(9, radio.getNowPlay());
     }
 
     @Test
@@ -130,7 +130,7 @@ public class RadioTest {
     public void shouldVolumeUp1() {
         Radio radio = new Radio(0, 10, 5);
         radio.increaseVolume();
-        assertEquals(5, radio.getNowVolume());
+        assertEquals(6, radio.getNowVolume());
     }
 
     @Test
@@ -195,7 +195,7 @@ public class RadioTest {
     public void shouldSetNowVolume() {
         Radio radio = new Radio();
         radio.setNowPlay();
-        assertEquals(5, radio.getNowVolume());
+        assertEquals(0, radio.getNowVolume());
     }
 
     @Test
