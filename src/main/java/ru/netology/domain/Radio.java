@@ -1,114 +1,76 @@
 package ru.netology.domain;
 
 public class Radio {
-    private String name;
-    private int maxStation = 9;
-    private int minStation = 0;
-    private int nowPlay;
-    private int maxVolume = 10;
-    private int minVolume = 0;
-    private int nowVolume;
-    private boolean on;
+    int NowPlay;
+    int maxStation = 9;
+    int minStation = 0;
+    int NowVolume;
+    int maxVolume = 10;
+    int minVolume = 0;
 
-    public String getName() {
-        return name;
+    public Radio() {
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Radio(int NowPlay) {
+        this.NowPlay = NowPlay;
     }
 
-    public int getMaxStation() {
-        return maxStation;
-    }
-
-    public void setMaxStation(int maxStation) {
-        this.maxStation = maxStation;
-    }
-
-    public int getMinStation() {
-        return minStation;
-    }
-
-    public void setMinStation(int minStation) {
-        this.minStation = minStation;
+    public Radio(int minVolume, int maxVolume, int NowVolume) {
+        this.minVolume = minVolume;
+        this.maxVolume = maxVolume;
+        this.NowVolume = NowVolume;
     }
 
     public int getNowPlay() {
-        return nowPlay;
+
+        return NowPlay;
     }
 
-    public void setNowPlay(int nowPlay) {
-        if (nowPlay > maxStation) {
+    public void setNowPlay() {
+        if ((NowPlay > maxStation) || (NowPlay < minStation)) {
             return;
+        } else
+            this.NowPlay = NowPlay;
+    }
+
+    public void nextStation() {
+        if ((NowPlay < maxStation) && (NowPlay >= minStation)) {
+            this.NowPlay = NowPlay + 1;
+        } else {
+            this.NowPlay = 0;
         }
-        if (nowPlay < minStation) {
-            return;
+    }
+
+    public void prevStation() {
+        if ((NowPlay <= maxStation) && (NowPlay > minStation)) {
+            this.NowPlay = NowPlay - 1;
+        } else {
+            this.NowPlay = maxStation;
         }
-        this.nowPlay = nowPlay;
-    }
-
-    public int getMaxVolume() {
-        return maxVolume;
-    }
-
-    public void setMaxVolume(int maxVolume) {
-        this.maxVolume = maxVolume;
-    }
-
-    public int getMinVolume() {
-        return minVolume;
-    }
-
-    public void setMinVolume(int minVolume) {
-        this.minVolume = minVolume;
     }
 
     public int getNowVolume() {
-        return nowVolume;
+
+        return NowVolume;
     }
 
-    public void setNowVolume(int nowVolume) {
-        if (nowVolume > maxVolume) {
+    public void setNowVolume(int NowVolume) {
+        if ((NowVolume > maxVolume) || (NowVolume < minVolume)) {
             return;
-        }
-        if (nowVolume < minVolume) {
-            return;
-        }
-        this.nowVolume = nowVolume;
+        } else this.NowVolume = NowVolume;
     }
 
-    public boolean isOn() {
-        return on;
+    public void increaseVolume() {
+        if ((NowVolume < maxVolume) && (NowVolume >= minVolume)) {
+            this.NowVolume = NowVolume + 1;
+        } else return;
     }
 
-    public void setOn(boolean on) {
-        this.on = on;
+    public void decreaseVolume()  {
+        if ((NowVolume <= maxVolume) && (NowVolume > minVolume)) {
+            this.NowVolume = getNowVolume() - 1;
+        } else return;
     }
 
-    // Переключение станций
-    public int nextStation() {
-        nowPlay = nowPlay < maxStation ? nowPlay + 1 : minStation;
-        return nowPlay;
-    }
 
-    public int prevStation() {
-        nowPlay = nowPlay > minStation ? nowPlay - 1 : maxStation;
-        return nowPlay;
-    }
-
-    // Переключение громкости
-    public int increaseVolume() {
-        if (nowVolume < maxVolume) {
-            nowVolume++;
-        }
-        return nowVolume;
-    }
-
-    public int decreaseVolume() {
-        if (nowVolume > minVolume) {
-            nowVolume--;
-        }
-        return nowVolume;
-    }
 }
