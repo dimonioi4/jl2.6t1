@@ -189,6 +189,13 @@ public class RadioTest {
         assertEquals(-1, radio.getNowVolume());
     }
 
+    @Test
+    public void shouldVolumeDown5() {
+        Radio radio = new Radio(0, 10, 11);
+        radio.decreaseVolume();
+        assertEquals(11, radio.getNowVolume());
+    }
+
 
 
     @Test
